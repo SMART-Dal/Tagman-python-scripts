@@ -8,18 +8,19 @@ The scripts use the GitHub GraphAPI and QScored API to download and rate the rep
 
 ### Prerequisites
 
-Github Personal Access Token 
-QScored API key
-Designite Jar
+- GitHub Personal Access Token 
+- QScored API key
+- [DesigniteJava](https://www.designite-tools.com/static/download/DJE/DesigniteJava.jar)
+- [CodeSplitJava](https://github.com/tushartushar/CodeSplitJava)
 
 ### Configurations
 
 The scripts can be configured to download scripts that match certain criteria. We have used the following criteria:
 
- * Lines Of Code : 10000 or more
- * QScored qaulity Score Threshold : 10
- * Language : Java
- * Number of Stars : 40,000 or more
+ * Lines of code: 10000 or more
+ * QScored quality score threshold: 10
+ * Language: Java
+ * Number of stars: 40,000 or more
 
 These can be easily configured in each file with their corresponding constants. 
 
@@ -39,4 +40,3 @@ python download-repo.py
 python data_curation_main.py
 ```
 
-The scripts rate repositories from QScored, download them from Github, run them through Designite to generate smells and split the code into classes and methods. 
