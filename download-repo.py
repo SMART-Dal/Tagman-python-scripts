@@ -5,11 +5,9 @@ from searchrepo import search_repo
 LOC_THRESHOLD = 10000
 QUALITY_SCORE_THRESHOLD = 10
 QSCORED_USER_NAME = "email@test.com"
-QSCORED_API_KEY = "2e300907a35b8ea1c33413876e5easdzsdea" # fake; just for example. Login to qscored.com to obtain your free key
-GITHUB_API_TOKEN = "2e300907a35b8ea1c33413876e5easdzsdea" # fake; just for example. 
+QSCORED_API_KEY = "2e300907a35b8ea1c33413876e5easdzsdea" # Demo QScored Key
+GITHUB_API_TOKEN = "2e300907a35b8ea1c33413876e5easdzsdea" # Demo Github API Key 
 
-# Response example:
-# b'[{"project_name":"BuildItBigger","uuid":"60f10a8b-35eb-4a84-a15d-f332c33e598b","score":0.63,"rank":27,"loc":143187,"lang":"java"}]'
 def _get_project_info(prj_name, prj_link):
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
