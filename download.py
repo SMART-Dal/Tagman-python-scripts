@@ -1,22 +1,23 @@
 import os
 from subprocess import call
-import sys
 
-base = "C:/Users/Himesh/Documents/thesis"
-ALL_REPOS_FILE=base+"/../dataset/final-dataset.csv"
-REPO_STORE_ROOT = base+"/output"
-REPOS_TO_DOWNLOAD=200    
+base = "."
+ALL_REPOS_FILE = base + "/../dataset/final-dataset.csv"
+REPO_STORE_ROOT = base + "/output"
+REPOS_TO_DOWNLOAD = 200
 
-def downloadRepo(repoName):
-    fullRepoName = "https://github.com/" + repoName + ".git"
-    folderName = repoName.replace("/", "_")
-    if not os.path.isdir(os.path.join(REPO_STORE_ROOT, folderName)):
-        os.mkdir(folderName)
+
+def download_repo(repoName):
+    full_repo_name = "https://github.com/" + repoName + ".git"
+    folder_name = repoName.replace("/", "_")
+    if not os.path.isdir(os.path.join(REPO_STORE_ROOT, folder_name)):
+        os.mkdir(folder_name)
         try:
-            call(["git", "clone", "--depth=1", fullRepoName, folderName])
+            call(["git", "clone", "--depth=1", full_repo_name, folder_name])
         except:
             print("Exception occurred!!")
             pass
+
 
 file = open(ALL_REPOS_FILE, 'rt', errors='ignore')
 if not os.path.isdir(REPO_STORE_ROOT):
@@ -29,5 +30,5 @@ for line in file.readlines()[:REPOS_TO_DOWNLOAD]:
         folder_path = os.path.join(REPO_STORE_ROOT, folder_name)
         if not os.path.isdir(folder_path):
             print('downloading ' + folder_name)
-            downloadRepo(repo_name)
+            download_repo(repo_name)
 print('Done.')
